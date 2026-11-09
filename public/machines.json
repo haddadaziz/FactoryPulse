@@ -1,0 +1,58 @@
+[
+    {
+        "id" : 1,
+        "name": "Presse hydraulique P1",
+        "zone": "Atelier A",
+        "status":"À l'arrêt",
+        "production":320
+    },
+    {
+        "id":2,
+        "name":"Tour CNC T2",
+        "zone":"Atelier B",
+        "status":"En fonctionnement",
+        "production":0
+    },
+    {
+        "id":3,
+        "name": "Tournevis electrique",
+        "zone":"Atelier C",
+        "status":"En fonctionnement",
+        "production":15
+    },
+    {
+        "id":4,
+        "name" : "Machine Futuriste",
+        "zone":"Atelier A",
+        "status":"En panne",
+        "production": 2
+    },
+    {
+        "id":5,
+        "name":"Plus d inspi",
+        "zone": "Atelier B",
+        "status" : "À l'arrêt",
+        "production": 154
+    },
+    {
+        "id":6,
+        "name" : "Machine Gun",
+        "zone":"Atelier C",
+        "status":"En fonctionnement",
+        "production":14
+    },
+    {
+        "id": 7,
+        "name" : "mache",
+        "zone": "Atelier A",
+        "status":"En fonctionnement",
+        "production": 0
+    },
+    {
+        "id":8,
+        "name":"Last machine",
+        "zone":"Atelier B",
+        "status":"À l'arrêt",
+        "production": 145787
+    }
+]
