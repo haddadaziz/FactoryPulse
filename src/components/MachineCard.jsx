@@ -1,4 +1,4 @@
-function MachineCard({ id,name, zone, status, production, onUpdateStatus }) {
+function MachineCard({ id,name, zone, status, production, onUpdateStatus, onDeleteMachine }) {
     return (
         <div>
             <h3>Nom de la machine : {name}</h3>
@@ -10,6 +10,7 @@ function MachineCard({ id,name, zone, status, production, onUpdateStatus }) {
                 <option value="En Panne">En Panne</option>
             </select>
             <p>Production total de cette machine : {production}</p>
+            <button onClick={() => onDeleteMachine(id)}>Supprimer La machine</button>
             <hr/>
         </div>
     )

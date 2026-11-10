@@ -1,7 +1,7 @@
 import MachineCard from "../components/MachineCard";
 import { useState } from "react";
 
-function Machines({ machines, onUpdateStatus }) {
+function Machines({ machines, onUpdateStatus, onDeleteMachine }) {
     const [search, setSearch] = useState("");
     const [statusFilter, setStatusFilter] = useState("Tous");
 
@@ -20,7 +20,7 @@ function Machines({ machines, onUpdateStatus }) {
                     <option value="Tous">Tous les statuts</option>
                     <option value="En fonctionnement">En fonctionnement</option>
                     <option value="À l'arrêt">À l'arrêt</option>
-                    <option value="En panne">En panne</option>
+                    <option value="En panne">En Panne</option>
                 </select>
                 <button onClick={() => { setSearch(""); setStatusFilter("Tous"); }}>Réinitialiser les filtres</button>
             </div>
@@ -38,6 +38,7 @@ function Machines({ machines, onUpdateStatus }) {
                         status={machine.status}
                         production={machine.production}
                         onUpdateStatus={onUpdateStatus}
+                        onDeleteMachine={onDeleteMachine}
                     />
                 ))}
             </div>
