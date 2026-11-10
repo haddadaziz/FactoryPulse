@@ -1,7 +1,7 @@
 import MachineCard from "../components/MachineCard";
 import { useState } from "react";
 
-function Machines({ machines }) {
+function Machines({ machines, onUpdateStatus }) {
     const [search, setSearch] = useState("");
     const [statusFilter, setStatusFilter] = useState("Tous");
 
@@ -32,10 +32,12 @@ function Machines({ machines }) {
                 {filteredMachines.map((machine) => (
                     <MachineCard
                         key={machine.id}
+                        id={machine.id}
                         name={machine.name}
                         zone={machine.zone}
                         status={machine.status}
                         production={machine.production}
+                        onUpdateStatus={onUpdateStatus}
                     />
                 ))}
             </div>

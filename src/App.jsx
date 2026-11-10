@@ -9,7 +9,10 @@ function App() {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const handleUpdateStatus = (id,newStatus) => {
+    setMachines((prevMachines) => prevMachines.map((machine) => machine.id === id ? {...machine,status:newStatus} : machine));
+  };
+  
   useEffect(() => {
     fetch("/machines.json")
       .then((res) => {
@@ -42,7 +45,7 @@ function App() {
         (<Routes>
           <Route path="/" element={<Dashboard machines={machines} />} />
           <Route path="/machines/new" element={<AddMachine />} />
-          <Route path="/machines" element={<Machines machines={machines} />} />
+          <Route path="/machines" element={<Machines machines={machines} onUpdateStatus={handleUpdateStatus} />} />
         </Routes>)}
     </>
   );
