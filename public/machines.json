@@ -24,7 +24,7 @@
         "id":4,
         "name" : "Machine Futuriste",
         "zone":"Atelier A",
-        "status":"En panne",
+        "status":"En Panne",
         "production": 2
     },
     {

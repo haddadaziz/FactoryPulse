@@ -7,7 +7,7 @@ function MachineCard({ id,name, zone, status, production, onUpdateStatus }) {
             <select value={status} onChange={(e) => onUpdateStatus(id,e.target.value)}>
                 <option value="En fonctionnement">En fonctionnement</option>
                 <option value="À l'arrêt">À l'arrêt</option>
-                <option value="En Panne">En panne</option>
+                <option value="En Panne">En Panne</option>
             </select>
             <p>Production total de cette machine : {production}</p>
             <hr/>

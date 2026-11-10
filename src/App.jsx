@@ -12,6 +12,12 @@ function App() {
   const handleUpdateStatus = (id,newStatus) => {
     setMachines((prevMachines) => prevMachines.map((machine) => machine.id === id ? {...machine,status:newStatus} : machine));
   };
+  const handleDeleteMachine = (id) => {
+    const confirmed = window.confirm("Etes vous sur de vouloir supprimer cette machine ?");
+    if(confirmed){
+      setMachines((prevMachines) => prevMachines.filter((machine) => machine.id !== id));
+    }
+  }
   
   useEffect(() => {
     fetch("/machines.json")
@@ -45,7 +51,7 @@ function App() {
         (<Routes>
           <Route path="/" element={<Dashboard machines={machines} />} />
           <Route path="/machines/new" element={<AddMachine />} />
-          <Route path="/machines" element={<Machines machines={machines} onUpdateStatus={handleUpdateStatus} />} />
+          <Route path="/machines" element={<Machines machines={machines} onUpdateStatus={handleUpdateStatus} onDeleteMachine={handleDeleteMachine}/>} />
         </Routes>)}
     </>
   );
