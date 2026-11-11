@@ -14,13 +14,13 @@ function Machines({ machines, onUpdateStatus, onDeleteMachine }) {
     return (
         <div>
             <h1>Machines</h1>
-            <div>
+            <div className="filters-bar">
                 <input type="text" placeholder="Rechercher une machine par nom ..." value={search} onChange={(e) => setSearch(e.target.value)} />
                 <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
                     <option value="Tous">Tous les statuts</option>
                     <option value="En fonctionnement">En fonctionnement</option>
                     <option value="À l'arrêt">À l'arrêt</option>
-                    <option value="En panne">En Panne</option>
+                    <option value="En Panne">En Panne</option>
                 </select>
                 <button onClick={() => { setSearch(""); setStatusFilter("Tous"); }}>Réinitialiser les filtres</button>
             </div>

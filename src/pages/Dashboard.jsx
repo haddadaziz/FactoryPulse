@@ -9,7 +9,7 @@ function Dashboard({ machines }) {
             <h1>Dashboard</h1>
             <StatCard label="Nombre total de machines" value={machines.length}/>
             <StatCard label="Nombre total de machines en fonctionnement" value={machinesFonctionnelles.length}/>
-            <StatCard label="Nombre total de machines en Panne" value={machinesEnPanne.length}/>;
+            <StatCard label="Nombre total de machines en Panne" value={machinesEnPanne.length}/>
         </div>
     );
 }

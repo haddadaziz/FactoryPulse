@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import AddMachine from "./pages/AddMachine";
 import Machines from "./pages/Machines";
 import Navbar from "./components/Navbar";
+import KanbanPage from "./pages/KanbanPage"
 
 function App() {
   const [machines, setMachines] = useState([]);
@@ -58,6 +59,7 @@ function App() {
           <Route path="/" element={<Dashboard machines={machines} />} />
           <Route path="/machines/new" element={<AddMachine onAddMachine={handleAddMachine} />} />
           <Route path="/machines" element={<Machines machines={machines} onUpdateStatus={handleUpdateStatus} onDeleteMachine={handleDeleteMachine} />} />
+          <Route path="/kanban" element={<KanbanPage machines={machines} onUpdateStatus={handleUpdateStatus}/>}/>
         </Routes>)}
     </>
   );
