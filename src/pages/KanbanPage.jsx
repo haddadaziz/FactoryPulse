@@ -2,7 +2,7 @@ import KanbanColumn from "../components/KanbanColumn";
 
 const STATUS = ["En fonctionnement","À l'arrêt","En Panne"];
 
-function KanbanPage({machines,onStatusChange}){
+function KanbanPage({machines,onUpdateStatus}){
     return (
         <div>
             <h2>Tableau Kanban</h2>
@@ -10,9 +10,9 @@ function KanbanPage({machines,onStatusChange}){
                 {STATUS.map((statut)=>(
                     <KanbanColumn 
                     key={statut}
-                    statut={statut}
+                    status={statut}
                     machines={machines.filter((m) => m.status === statut)}
-                    onDropMachine={onStatusChange}
+                    onDropMachine={onUpdateStatus}
                     />
                 ))}
             </div>

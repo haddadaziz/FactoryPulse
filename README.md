@@ -1,16 +1,54 @@
-# React + Vite
+# FactoryPulse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application web de suivi des machines d'un atelier de production. Elle permet de voir l'état des équipements, de les rechercher, de les modifier et d'en ajouter, à partir d'un fichier JSON local.
 
-Currently, two official plugins are available:
+Projet étudiant. Pas de serveur ni de base de données : les données restent en mémoire le temps de la session.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fonctionnalités
 
-## React Compiler
+- **Tableau de bord** (`/`) : nombre total de machines, machines en fonctionnement et machines en panne.
+- **Liste des machines** (`/machines`) : cartes avec recherche par nom, filtre par statut, changement de statut et suppression après confirmation.
+- **Ajout** (`/machines/new`) : formulaire avec contrôles (nom et zone obligatoires, production entière supérieure ou égale à zéro).
+- **Kanban** (`/kanban`) : trois colonnes selon le statut, déplacement d'une machine par glisser-déposer.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Les indicateurs du tableau de bord sont recalculés à partir de la liste courante après chaque ajout, modification ou suppression.
 
-## Expanding the ESLint configuration
+## Lancer le projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Prérequis : [Node.js](https://nodejs.org/).
+
+```bash
+npm install
+npm run dev
+```
+
+Puis ouvrir l'adresse affichée dans le terminal (en général `http://localhost:5173`).
+
+Autres commandes :
+
+```bash
+npm run build    # génère le dossier dist
+npm run preview  # sert le build localement
+npm run lint     # vérifie le code avec ESLint
+```
+
+## Données
+
+Au chargement, l'application lit `public/machines.json` avec `fetch`. Les ajouts, modifications et suppressions ne changent que l'état React : un rechargement de la page remet les données d'origine.
+
+Chaque machine a un identifiant, un nom, une zone, un statut (`En fonctionnement`, `À l'arrêt` ou `En Panne`) et une production journalière.
+
+## Stack
+
+- React
+- React Router
+- Vite
+
+## Structure
+
+```
+public/machines.json          données initiales
+src/App.jsx                   état partagé et routes
+src/pages/                    tableau de bord, liste, ajout, kanban
+src/components/               navigation, cartes, colonnes kanban
+```

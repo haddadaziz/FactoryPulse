@@ -5,6 +5,10 @@ function AddMachine({ onAddMachine }) {
     const navigate = useNavigate();
 
     const [name, setName] = useState("");
+    // let name ="test"
+    // const setName = (nameP)=>{
+    //     name=nameP
+    // }
     const [zone, setZone] = useState("");
     const [status, setStatus] = useState("En fonctionnement");
     const [production, setProduction] = useState(0);

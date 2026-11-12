@@ -11,7 +11,7 @@ function KanbanColumn({status,machines,onDropMachine}){
 
     const handleDrop = (e) =>{
         e.preventDefault();
-        const id = e.dataTransfer.getData("text/plain");
+        const id =Number(e.dataTransfer.getData("text/plain"));
         onDropMachine(id,status);
         setIsOver(false);
     };
